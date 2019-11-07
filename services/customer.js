@@ -8,7 +8,8 @@ class CustomerLeakServices{
         this.mongoDB =  new MongoLib();
     }
     async getData({ tags }){
-        const query = tags && { tags: {$in: tags }};
+        const query = tags && { tags: { $in: tags } };
+        console.log("customer "+query);
         const leads = await this.mongoDB.getAll(this.collection,query);
         return leads || [];
     }
