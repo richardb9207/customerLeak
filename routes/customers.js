@@ -7,9 +7,9 @@ function customerLeakApi(app){
 
     const customerLeakServices = new CustomerLeakServices();
     router.get("/", async function(req, res, next){
-        const { tags } = req.query;
+        //const { tags } = req.query;
         try{
-            const data = await customerLeakServices.getData({tags});
+            const data = await customerLeakServices.getData(req.query);
             res.status(200).json({
                 data: data,
                 message: 'leads listed'
